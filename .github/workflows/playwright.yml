@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  e2e-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +25,7 @@ jobs:
       run: npx playwright test
 
     - name: Publish HTML Report
-    - uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
